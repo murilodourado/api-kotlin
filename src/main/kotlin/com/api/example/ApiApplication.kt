@@ -1,11 +1,13 @@
-package com.kotlin.apikotlin
+package com.api.example
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 
+@EnableJpaAuditing
 @SpringBootApplication
-class ApiKotlinApplication
+class ApiApplication
 
 fun main(args: Array<String>) {
-	runApplication<ApiKotlinApplication>(*args)
+	runApplication<ApiApplication>(*args)
 }
