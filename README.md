@@ -6,3 +6,6 @@ The following api is used as example, was implemented using Spring and Kotlin:
 ./gradlew clean build
 ```
 # Running
+```
+./gradlew bootRun 
+```
