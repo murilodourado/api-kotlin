@@ -26,8 +26,8 @@ class UserController(private val userService: UserService) {
         }
     }
 
-    @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun find(@PathVariable id: Long): ResponseEntity<User> {
+    @GetMapping("/{id}",produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun find(@PathVariable("id") id: Long): ResponseEntity<User> {
         return try {
             ResponseEntity.ok(userService.getById(id))
         } catch (ex: NoSuchElementException) {

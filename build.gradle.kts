@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
 	id("org.springframework.boot") version "2.4.4"
@@ -29,6 +30,7 @@ dependencies {
 	}
 	testImplementation("io.mockk:mockk:1.11.0")
 	testImplementation("com.ninja-squad:springmockk:3.0.1")
+	testCompileOnly("io.kotlintest:kotlintest-runner-junit5:3.1.9")
 }
 
 tasks.withType<KotlinCompile> {
@@ -40,4 +42,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	testLogging{
+		events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+	}
 }
