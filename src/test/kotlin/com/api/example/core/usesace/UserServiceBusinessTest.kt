@@ -8,6 +8,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
@@ -35,8 +36,7 @@ class UserServiceBusinessTest {
             createDate = LocalDateTime.now()
         ))
         every { userRepository.findById(expected.get().id) } returns expected
-
-        Assertions.assertEquals(expected.get(), userBusinessService.getById(0L))
+        assertEquals(expected.get(), userBusinessService.getById(0L))
     }
 
 }
