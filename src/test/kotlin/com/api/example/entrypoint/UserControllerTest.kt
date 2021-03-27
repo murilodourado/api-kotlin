@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPat
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import java.time.LocalDateTime
+import java.util.*
 
 @ExtendWith(SpringExtension::class)
 @WebMvcTest(UserController::class)
@@ -51,8 +52,8 @@ class UserControllerTest {
 
     private fun getUser(): List<User> {
         return listOf(
-            User(0L, "test01", "test01@email.com", LocalDateTime.now()),
-            User(1L, "test02", "test02@email.com", LocalDateTime.now())
+            User(UUID.randomUUID(), "test01", "test01@email.com", LocalDateTime.now()),
+            User(UUID.randomUUID(), "test02", "test02@email.com", LocalDateTime.now())
         )
     }
 

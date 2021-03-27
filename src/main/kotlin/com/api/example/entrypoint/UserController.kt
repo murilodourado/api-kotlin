@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
+import kotlin.NoSuchElementException
 
 @RestController
 @RequestMapping("/v1/api/user")
@@ -27,7 +29,7 @@ class UserController(private val userService: UserService) {
     }
 
     @GetMapping("/{id}",produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun find(@PathVariable("id") id: Long): ResponseEntity<User> {
+    fun find(@PathVariable("id") id: UUID): ResponseEntity<User> {
         return try {
             ResponseEntity.ok(userService.getById(id))
         } catch (ex: NoSuchElementException) {

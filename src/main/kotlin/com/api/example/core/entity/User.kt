@@ -1,14 +1,11 @@
 package com.api.example.core.entity
 
+import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import java.util.*
 
-@Entity
 data class User(
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long,
+    @Id val id: UUID,
     val name: String,
     val email: String,
     val createDate: LocalDateTime = LocalDateTime.now()

@@ -3,6 +3,7 @@ package com.api.example.core.usecase
 import com.api.example.core.entity.User
 import com.api.example.repository.UserRepository
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UserBusinessService(private val userRepository: UserRepository) : UserService {
@@ -11,7 +12,7 @@ class UserBusinessService(private val userRepository: UserRepository) : UserServ
         userRepository.save(user)
     }
 
-    override fun getById(id: Long): User {
+    override fun getById(id: UUID): User {
         return userRepository.findById(id).get();
     }
 
