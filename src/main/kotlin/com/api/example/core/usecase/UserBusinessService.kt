@@ -2,10 +2,10 @@ package com.api.example.core.usecase
 
 import com.api.example.core.entity.User
 import com.api.example.repository.UserRepository
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Component
-class UserServiceImpl(private val userRepository: UserRepository) : UserService {
+@Service
+class UserBusinessService(private val userRepository: UserRepository) : UserService {
 
     override fun save(user: User) {
         userRepository.save(user)

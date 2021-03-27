@@ -3,6 +3,7 @@ package com.api.example.entrypoint
 import com.api.example.core.entity.User
 import com.api.example.core.usecase.UserService
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.lang.RuntimeException
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/v1/api/user")
@@ -26,8 +28,8 @@ class UserController(private val userService: UserService) {
         }
     }
 
-    @GetMapping("{id}")
-    fun find(@PathVariable("id") id: Long): ResponseEntity<User> {
+    @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun find(@PathVariable id: Long): ResponseEntity<User> {
         return try {
             ResponseEntity.ok(userService.getById(id))
         } catch (ex: NoSuchElementException) {
