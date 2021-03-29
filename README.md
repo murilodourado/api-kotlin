@@ -19,6 +19,6 @@ You should create a new db call "userdb", you call create using cli or [compass]
 use the credentials at docker-compose.yml
 
 ### TODO
+- [X] Create example using Kafka
 - [] Change docker compose to create automactilly the database
-- [] Create example using Kafka
-- [] Look how to integrate with Ktor   
+- [] Create Test for Kafka Events    
