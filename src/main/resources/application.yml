@@ -1,0 +1,22 @@
+server:
+  port: 9090
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: rootPass
+      database: userdb
+      port: 27017
+      host: localhost
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: api-kotlin
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer

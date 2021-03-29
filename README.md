@@ -21,4 +21,4 @@ use the credentials at docker-compose.yml
 ### TODO
 - [] Change docker compose to create automactilly the database
 - [] Create example using Kafka
-- [] 
+- [] Look how to integrate with Ktor   

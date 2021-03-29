@@ -1,7 +1,9 @@
 package com.api.example.entrypoint
 
-import com.api.example.core.entity.User
-import com.api.example.core.usecase.UserService
+import com.api.example.core.entity.account.AccountType
+import com.api.example.core.entity.user.User
+import com.api.example.core.usecase.user.UserService
+import com.api.example.entrypoint.rest.UserController
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.BeforeEach
@@ -18,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPat
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import java.time.LocalDateTime
-import java.util.*
+import java.util.UUID
 
 @ExtendWith(SpringExtension::class)
 @WebMvcTest(UserController::class)
@@ -52,8 +54,8 @@ class UserControllerTest {
 
     private fun getUser(): List<User> {
         return listOf(
-            User(UUID.randomUUID(), "test01", "test01@email.com", LocalDateTime.now()),
-            User(UUID.randomUUID(), "test02", "test02@email.com", LocalDateTime.now())
+            User(UUID.randomUUID(), "test01", "test01@email.com", AccountType.SALARY_ACCOUNT,LocalDateTime.now()),
+            User(UUID.randomUUID(), "test02", "test02@email.com", AccountType.SALARY_ACCOUNT,LocalDateTime.now())
         )
     }
 

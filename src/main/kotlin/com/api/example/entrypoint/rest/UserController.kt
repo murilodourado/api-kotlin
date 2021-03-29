@@ -1,7 +1,7 @@
-package com.api.example.entrypoint
+package com.api.example.entrypoint.rest
 
-import com.api.example.core.entity.User
-import com.api.example.core.usecase.UserService
+import com.api.example.core.entity.user.User
+import com.api.example.core.usecase.user.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.util.*
-import kotlin.NoSuchElementException
+import java.util.NoSuchElementException
+import java.util.UUID
 
 @RestController
 @RequestMapping("/v1/api/user")
@@ -28,7 +28,7 @@ class UserController(private val userService: UserService) {
         }
     }
 
-    @GetMapping("/{id}",produces = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/{id}", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun find(@PathVariable("id") id: UUID): ResponseEntity<User> {
         return try {
             ResponseEntity.ok(userService.getById(id))
