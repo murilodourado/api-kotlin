@@ -12,7 +12,7 @@ import java.util.UUID
 @Component
 class CreateUserAccountMDB(private val accountService: AccountService, val objectMapper: ObjectMapper) {
 
-    @KafkaListener(topics =  [EVENT_USER_CREATED])
+    @KafkaListener(id = EVENT_USER_CREATED, topics =  [EVENT_USER_CREATED])
     fun consume(userJsonValue: String){
         val user = objectMapper.readValue(userJsonValue, User::class.java)
         accountService.create(Account(UUID.randomUUID(), user.accountType, user.id))

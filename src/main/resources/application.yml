@@ -10,6 +10,8 @@ spring:
       port: 27017
       host: localhost
   kafka:
+    listener:
+      ack-mode: manual
     consumer:
       bootstrap-servers: localhost:9092
       group-id: api-kotlin

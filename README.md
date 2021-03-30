@@ -11,7 +11,7 @@ The following api is used as example, was implemented using Spring and Kotlin:
 ```
 
 ## MongoDB
-at the docker compose folder run the following command
+'at the docker compose folder run the following command
 ```
 docker-compose up -d
 ```
