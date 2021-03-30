@@ -15,7 +15,7 @@ services:
       - "9581-9585:9581-9585"
       - "9092:9092"
     networks:
-      - kafka
+      - api-network
   mongo-container:
     image: mongo:3.4.2
     environment:
@@ -26,3 +26,9 @@ services:
     volumes:
       - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
     command: mongod
+    networks:
+      - api-network
+
+networks:
+  api-network:
+
