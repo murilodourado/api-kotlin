@@ -15,7 +15,7 @@ class KafkaConfig {
 
     class Topics {
         companion object {
-            const val EVENT_USER_CREATED = "event.user.created"
+            const val EVENT_USER_CREATED = "event.user"
         }
     }
 

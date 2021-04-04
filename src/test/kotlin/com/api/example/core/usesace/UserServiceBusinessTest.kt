@@ -4,6 +4,7 @@ import com.api.example.core.entity.account.AccountType
 import com.api.example.core.entity.user.User
 import com.api.example.core.usecase.user.UserBusinessService
 import com.api.example.repository.UserRepository
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
@@ -24,6 +25,9 @@ class UserServiceBusinessTest {
 
     @InjectMockKs
     private lateinit var userBusinessService: UserBusinessService
+
+    @InjectMockKs
+    private lateinit var objectMapper: ObjectMapper
 
     @BeforeEach
     fun setup() = MockKAnnotations.init(this)

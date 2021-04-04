@@ -54,8 +54,8 @@ class UserControllerTest {
 
     private fun getUser(): List<User> {
         return listOf(
-            User(UUID.randomUUID(), "test01", "test01@email.com", AccountType.SALARY_ACCOUNT,LocalDateTime.now()),
-            User(UUID.randomUUID(), "test02", "test02@email.com", AccountType.SALARY_ACCOUNT,LocalDateTime.now())
+            User(UUID.randomUUID(), "test01", "test01@email.com", AccountType.SAVING_ACCOUNT, LocalDateTime.now()),
+            User(UUID.randomUUID(), "test02", "test02@email.com", AccountType.SALARY_ACCOUNT, LocalDateTime.now())
         )
     }
 

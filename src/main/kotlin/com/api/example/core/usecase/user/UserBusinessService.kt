@@ -13,16 +13,15 @@ import java.util.UUID
 
 @Service
 class UserBusinessService(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val objectMapper: ObjectMapper
 ) : UserService {
 
     @Autowired
     private val kafkaTemplate: KafkaTemplate<String, String>? = null
 
-    private val objectMapper: ObjectMapper? = null
-
     override fun save(user: User) {
-        kafkaTemplate?.send(ProducerRecord(EVENT_USER_CREATED, objectMapper?.writeValueAsString(user)))
+        kafkaTemplate?.send(ProducerRecord(EVENT_USER_CREATED, objectMapper.writeValueAsString(user)))
             ?.addCallback({
                 userRepository.save(user)
             }, {

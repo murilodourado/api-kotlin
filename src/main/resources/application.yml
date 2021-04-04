@@ -10,11 +10,8 @@ spring:
       port: 27017
       host: localhost
   kafka:
-    listener:
-      ack-mode: manual
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: api-kotlin
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -22,3 +19,5 @@ spring:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual
